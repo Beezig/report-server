@@ -18,6 +18,16 @@
 -->
 
 # Reports server (Beezig)
+This is Beezig's report server.  
+
+## Routes
+It receives report requests via `POST /report`.
+* Go [here](https://github.com/Beezig/Beezig/blob/master/src/eu/beezig/core/command/ReportCommand.java#L81) for Beezig's implementation.
+
+It also receives Discord requests via `GET /check/:id`.  
+These requests can be used to check if a user is a member of the Beezig Discord guild.  
+* `id` is the Discord user ID of the player.
+* [Implementation](https://github.com/Beezig/Beezig/blob/master/src/eu/beezig/core/utils/rpc/DiscordUtils.java#L35)
 
 ## Environment
 * `BOT_TOKEN`: Discord bot token to use.
