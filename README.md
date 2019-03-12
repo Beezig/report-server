@@ -18,3 +18,8 @@
 -->
 
 # Reports server (Beezig)
+
+## Environment
+* `BOT_TOKEN`: Discord bot token to use.
+* `BOT_GUILD_ID`: The guild ID the bot should use when checking if a player is a member.
+* `REPORTS_HOOK`: Discord webhook URL to send reports.

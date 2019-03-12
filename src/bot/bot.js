@@ -15,5 +15,27 @@
 // You should have received a copy of the GNU General Public License
 // along with "Bot/Reports server (Beezig)".  If not, see <http://www.gnu.org/licenses/>.
 
+/* Eris is our Discord framework */
+const Eris = require("eris")
 
+/* Retrieve the token from environment */
+const token = process.env.BOT_TOKEN
 
+/* Init bot */
+const bot = new Eris(token)
+bot.on("error", require("../utils/errors.js"))
+bot.connect()
+
+/* Our route function */
+module.exports = (req, res) => {
+    let match_id = req.params.id
+
+    let guild_id = process.env.BOT_GUILD_ID
+    let guild = bot.guilds.get(guild_id)
+
+    let members = guild.members
+
+    let member_found = members.find(m => m.id === match_id)
+
+    res.sendStatus(member_found ? 302 : 404)
+}

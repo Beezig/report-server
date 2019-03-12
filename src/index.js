@@ -47,4 +47,10 @@ const port = 80
 app.listen(port)
 
 
+/* SERVER ROUTES */
+
+/* The bot's route */
+app.get("/check/:id", require("./bot/bot.js"))
+
+
 

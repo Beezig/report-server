@@ -23,4 +23,5 @@ module.exports = err => {
         title: "[Bot Server] Uncaught exception thrown",
         description: err.stack.substring(0, 1999)
     }
+
 }
