@@ -22,4 +22,8 @@
 ## Environment
 * `BOT_TOKEN`: Discord bot token to use.
 * `BOT_GUILD_ID`: The guild ID the bot should use when checking if a player is a member.
-* `REPORTS_HOOK`: Discord webhook URL to send reports.
+* `REPORTS_HOOK_ID`: Discord webhook ID to send reports.
+* `REPORTS_HOOK_KEY`: The webhook's secret key.
+* `REPORTS_MOD_ROLE`: The moderator role that will be pinged.
+* `ERROR_HOOK_ID`: Webhook ID for error reporting.
+* `ERROR_HOOK_KEY`: Webhook key for error reporting.

@@ -17,6 +17,10 @@
 
 const colors = require("./colors.js")
 
+const Discord = require("discord.js")
+const hook = new Discord.WebhookClient(process.env.ERROR_HOOK_ID, process.env.ERROR_HOOK_KEY)
+
+
 module.exports = err => {
     let embed = {
         color: colors.ERROR,
@@ -24,4 +28,5 @@ module.exports = err => {
         description: err.stack.substring(0, 1999)
     }
 
+    hook.send("", { embeds: [embed] })
 }

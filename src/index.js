@@ -27,18 +27,6 @@ app.use(body_parser.urlencoded({ extended: true }))
 app.use(body_parser.json())
 
 
-/* ERROR CONTROL */
-
-const error_handler = require("./utils/errors.js")
-
-process.on("uncaughtException", error_handler)
-app.use((err, _req, _res, next) => {
-    if (err) {
-        error_handler(err)
-    }
-    next()
-})
-
 /* SERVER INITIALIZATION */
 
 /* We listen on port 80 (HTTP).
@@ -52,5 +40,18 @@ app.listen(port)
 /* The bot's route */
 app.get("/check/:id", require("./bot/bot.js"))
 
+/* The report route */
+app.post("/report", require("./reports/reports.js"))
 
 
+/* ERROR CONTROL */
+
+const error_handler = require("./utils/errors.js")
+
+process.on("uncaughtException", error_handler)
+app.use((err, _req, _res, next) => {
+    if (err) {
+        error_handler(err)
+    }
+    next()
+})
