@@ -25,6 +25,15 @@ const mod_role = process.env.REPORTS_MOD_ROLE
 const hook = new Discord.WebhookClient(hook_id, hook_key)
 
 module.exports = (req, res) => {
+
+    /* Prevent sending reports without Beezig */
+    if (!req.headers['user-agent'].startsWith('Beezig/')) {
+
+        res.status(403).send('You need to be using Beezig!')
+        return
+
+    }
+
     let sender = req.body.sender
     let reason = req.body.reason
     let target = req.body.destination
